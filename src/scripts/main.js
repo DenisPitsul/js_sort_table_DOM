@@ -11,20 +11,22 @@ tableElement.addEventListener('click', (e) => {
 
   const tableRows = e.currentTarget.querySelectorAll('tbody tr');
 
-  const users = [...tableRows].map((row) => {
-    const tdElements = row.querySelectorAll('td');
+  const users = [...tableRows]
+    .map((row) => {
+      const tdElements = row.querySelectorAll('td');
 
-    if (tdElements.length < 4) {
-      return;
-    }
+      if (tdElements.length < 4) {
+        return;
+      }
 
-    return {
-      Name: tdElements[0].textContent,
-      Position: tdElements[1].textContent,
-      Age: tdElements[2].textContent,
-      Salary: tdElements[3].textContent,
-    };
-  });
+      return {
+        Name: tdElements[0].textContent,
+        Position: tdElements[1].textContent,
+        Age: tdElements[2].textContent,
+        Salary: tdElements[3].textContent,
+      };
+    })
+    .filter(Boolean);
 
   const sortBy = thElement.textContent;
 
